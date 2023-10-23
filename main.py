@@ -1,16 +1,12 @@
-# This is a sample Python script.
+#https://www.youtube.com/watch?v=0sOvCWFmrtA&t=28139s
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from fastapi import FastAPI
 
+app = FastAPI()
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+@app.get("/")
+def root():
+    return {"message": "Ahoj222"}
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+#run below command into the terminal to rerun the website
+#uvicorn main:app --reload --port 8001
