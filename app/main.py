@@ -1,50 +1,66 @@
-#https://www.youtube.com/watch?v=0sOvCWFmrtA&t=28139s
-
-from typing import Optional
-from fastapi import FastAPI, Response, status, HTTPException
-from fastapi.params import Body
-from pydantic import BaseModel
-from random import randrange
-import psycopg2
-from psycopg2.extras import RealDictCursor
 import time
 
+import psycopg2
+from fastapi import FastAPI, Response, status, HTTPException
+from psycopg2.extras import RealDictCursor
+from pydantic import BaseModel
+
 app = FastAPI()
+
+hidden_imports = [
+    'uvicorn.logging',
+    'uvicorn.loops',
+    'uvicorn.loops.auto',
+    'uvicorn.protocols',
+    'uvicorn.protocols.http',
+    'uvicorn.protocols.http.auto',
+    'uvicorn.protocols.websockets',
+    'uvicorn.protocols.websockets.auto',
+    'uvicorn.lifespan',
+    'uvicorn.lifespan.on',
+    'app',
+]
+
 
 class Post(BaseModel):
     title: str
     content: str
     published: bool = True
 
-while True:
 
+while True:
     try:
-        conn = psycopg2.connect(host='localhost', database='fastapi', user='postgres', password='Nepijemrum22_22', cursor_factory=RealDictCursor)
+        conn = psycopg2.connect(host='localhost', database='fastapi', user='admin', password='0000',
+                                cursor_factory=RealDictCursor)
+        # conn = psycopg2.connect(host='localhost', database='fastapi', user='postgres', password='Nepijemrum22_22', cursor_factory=RealDictCursor)
         cursor = conn.cursor()
-        print("Database connection was succesful!")
+        print("Database connection was successful!")
         break
     except Exception as error:
         print("Connecting to database failed!")
         print("Error: ", error)
         time.sleep(3)
 
-my_posts = [{"title": "title of post 1", "content": "content of post 1", "id": 1}, {"title": "favorite foods", "content": "I like pizza", "id": 2}]
+my_posts = [{"title": "title of post 1", "content": "content of post 1", "id": 1},
+            {"title": "favorite foods", "content": "I like pizza", "id": 2}]
+
 
 def find_post(id):
     for p in my_posts:
         if p["id"] == id:
             return p
 
+
 def find_index_post(id):
-    for i,p in enumerate(my_posts):
+    for i, p in enumerate(my_posts):
         if p['id'] == id:
             return i
+
+
 @app.get("/")
 def root():
-    return {"message": "Welcome to my new API"}
+    return {"message": "Welcome to my new API. "}
 
-#run the command below into the terminal to rerun the website
-#uvicorn main:app --reload --port 8001
 
 @app.get("/posts")
 def get_posts():
@@ -52,11 +68,14 @@ def get_posts():
     posts = cursor.fetchall()
     return {"data": posts}
 
+
 @app.post("/posts", status_code=status.HTTP_201_CREATED)
 def create_posts(post: Post):
     cursor.execute(f"INSERT INTO posts (title, content, published) VALUES({post.title}, {post.content})")
-    cursor.execute("""INSERT INTO posts (title, content, published) VALUES (%s, %s, %s) """, (post.title, post.content, post.published))
-    return {"data": ""created post""}
+    cursor.execute("""INSERT INTO posts (title, content, published) VALUES (%s, %s, %s) """,
+                   (post.title, post.content, post.published))
+    return {"data": "created post"}
+
 
 @app.get("/posts/{id}")
 def get_post(id: int):
@@ -65,6 +84,7 @@ def get_post(id: int):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail=f"post with id: {id} was not found")
     return {"post detail": post}
+
 
 @app.delete("/posts/{id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_post(id: int):
@@ -76,6 +96,7 @@ def delete_post(id: int):
     my_posts.pop(index)
     return Response(status_code=status.HTTP_204_NO_CONTENT)
 
+
 @app.put("/posts/{id}")
 def update_post(id: int, post: Post):
     index = find_index_post(id)
@@ -86,15 +107,3 @@ def update_post(id: int, post: Post):
     post_dict['id'] = id
     my_posts[index] = post_dict
     return {'data': post_dict}
-
-
-
-
-
-
-
-
-
-
-
-
