@@ -4,9 +4,20 @@ import psycopg2
 from fastapi import FastAPI, Response, status, HTTPException
 from psycopg2.extras import RealDictCursor
 from pydantic import BaseModel
+from sqlalchemy.orm import Session
+from . import models
+from .database import engine, SessionLocal
 
+models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
 
 hidden_imports = [
     'uvicorn.logging',
@@ -65,6 +76,9 @@ def find_index_post(id):
 @app.get('/')
 def root():
     return {'message': 'Welcome to my new API. This is welcome screen!'}
+
+@app.get("/sqlalchemy")
+def test_posts(db: Session = Depends(get_db))
 
 
 @app.get('/posts')

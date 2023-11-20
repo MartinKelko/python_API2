@@ -5,3 +5,7 @@ from sqlalchemy.orm import sessionmaker
 sqlalchemy_database_url = 'postgresql://postgres:password123@localhost/fastapi'
 
 engine = create_engine(sqlalchemy_database_url)
+
+SessionLocal = sessionmaker(autocomit=False, autoflush=False, bind=engine)
+
+Base = declarative_base()
