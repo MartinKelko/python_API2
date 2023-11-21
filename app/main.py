@@ -102,8 +102,8 @@ def create_posts(post: Post, db: Session = Depends(get_db)):
 
 @app.get('/posts/{id}')
 def get_post(id: int, db: Session = Depends(get_db)):
-    #cursor.execute("""SELECT * from posts WHERE id = %s """, (str(id),))
-    #post = cursor.fetchone()
+    cursor.execute("""SELECT * from posts WHERE id = %s """, (str(id),))
+    post = cursor.fetchone()
     post = db.query(models.Post).filter(models.Post.id == id).first()
     print(post)
 
@@ -134,12 +134,12 @@ def delete_post(id: int, db: Session = Depends(get_db)):
 
 @app.put('/posts/{id}')
 def update_post(id: int, post: Post, db: Session = Depends(get_db)):
-    #cursor.execute("""UPDATE posts SET title = %s, content = %s, published = %s WHERE id = %s
+    cursor.execute("""UPDATE posts SET title = %s, content = %s, published = %s WHERE id = %s
     RETURNING *""",
-    #               (post.title, post.content, post.published, str(id)))
+                   (post.title, post.content, post.published, str(id)))
 
-    #updated_post = cursor.fetchone()
-    #conn.commit()
+    updated_post = cursor.fetchone()
+    conn.commit()
     
     post_query = db.query(models.Post).filter(models.Post.id == id)
     
@@ -150,6 +150,6 @@ def update_post(id: int, post: Post, db: Session = Depends(get_db)):
         
     post_query.update({'title': 'hey this my update', 'content': 'this is my updated content'}, synchronize_session=False)
     
-    db.commit()   
+    db.commit()
 
     return {'data': updated_post}
