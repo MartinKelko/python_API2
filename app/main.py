@@ -3,10 +3,10 @@ import time
 from typing import Optional, List
 import psycopg2
 from fastapi import FastAPI, Response, status, HTTPException, Depends
-from psycopg2.extras import RealDictCursor
 from pydantic import BaseModel
+from psycopg2.extras import RealDictCursor
 from sqlalchemy.orm import Session
-from . import models, schemas
+from . import models, schemas, utils
 from .database import engine, get_db
 
 models.Base.metadata.create_all(bind=engine)
@@ -80,10 +80,12 @@ def create_posts(post: schemas.PostCreate, db: Session = Depends(get_db)):
     new_post = cursor.fetchone()
 
     conn.commit()
+
     new_post = models.Post(**post.dict())
     db.add(new_post)
     db.commit()
     db.refresh(new_post)
+
     return new_post
 
 
@@ -139,4 +141,18 @@ def update_post(id: int, updated_post: schemas.PostCreate, db: Session = Depends
     
     db.commit()
 
-    return post_query
+    return post_query.first()
+
+@app.post('/users', status_code=status.HTTP_201_CREATED, response_model=schemas.UserOut)
+def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
+
+    #hash the password - user.password
+    hashed_password = utils.hash(user.password)
+    user.password = hashed_password
+
+    new_user = models.User(**user.dict())
+    db.add(new_user)
+    db.commit()
+    db.refresh(new_user)
+
+    return new_user
