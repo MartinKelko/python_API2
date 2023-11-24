@@ -1,0 +1,132 @@
+[33mcommit 2557be6a816976477eb0ef08a38e8fd98a07c691[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: martin.kelko <martin2kelko@gmail.com>
+Date:   Wed Nov 22 10:53:06 2023 +0100
+
+    fix: add run configuration for `__init__`
+
+[33mcommit 31597055c659af66d770dea9b9ebaea97123565e[m
+Author: martin.kelko <martin2kelko@gmail.com>
+Date:   Tue Nov 21 12:38:13 2023 +0100
+
+    fix: add run configuration for `__init__`
+
+[33mcommit 93e817398ac31dd99e0b2e8a6be010d7982794e9[m
+Author: martin.kelko <martin2kelko@gmail.com>
+Date:   Tue Nov 21 12:27:44 2023 +0100
+
+    fix: add run configuration for `__init__`
+
+[33mcommit 56c3274b4390094cd333e7a2474547df1c11060b[m
+Author: martin.kelko <martin2kelko@gmail.com>
+Date:   Tue Nov 21 12:20:59 2023 +0100
+
+    fix: add run configuration for `__init__`
+
+[33mcommit 8e8985f12f33d807ad6d8b51229a6984f3a7ccca[m
+Author: martin.kelko <martin2kelko@gmail.com>
+Date:   Mon Nov 20 15:18:30 2023 +0100
+
+    fix: add run configuration for `__init__`
+
+[33mcommit c032fe7818a28bd24deab0d3099377b6f1733a51[m
+Author: martin.kelko <martin2kelko@gmail.com>
+Date:   Mon Nov 20 12:09:55 2023 +0100
+
+    fix: add run configuration for `__init__`
+
+[33mcommit d4b2a34b3577ab7a66aa98062e8849a83f2baf50[m
+Author: martin.kelko <martin2kelko@gmail.com>
+Date:   Mon Nov 20 08:18:28 2023 +0100
+
+    fix: add run configuration for `__init__`
+
+[33mcommit 3ae95bb57804ab16a8754878776022fd2d7ece7e[m
+Author: martin.kelko <martin2kelko@gmail.com>
+Date:   Thu Nov 16 14:20:01 2023 +0100
+
+    fix: add run configuration for `__init__`
+
+[33mcommit d03662344b0cbb5ba45c0a006924c9bf23980dd5[m
+Author: martin.kelko <martin2kelko@gmail.com>
+Date:   Thu Nov 16 13:18:52 2023 +0100
+
+    fix: add run configuration for `__init__`
+
+[33mcommit 64d44491a9114953bebb09800e2da1f5061d9ed1[m
+Author: martin.kelko <martin2kelko@gmail.com>
+Date:   Wed Nov 15 17:36:32 2023 +0100
+
+    fix: add run configuration for `__init__`
+
+[33mcommit 0b98a1d63f12ebdcd22543aac11a953af165650b[m
+Author: martin.kelko <martin2kelko@gmail.com>
+Date:   Wed Nov 15 17:32:26 2023 +0100
+
+    fix: unable to connect to the database + small refactoring
+
+[33mcommit 47181e12fb07c9b2c2d58ddde7d9d2c63c53c718[m
+Merge: 337024b 9da87c2
+Author: martin.kelko <martin2kelko@gmail.com>
+Date:   Tue Nov 14 12:18:07 2023 +0100
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 337024b7bde6133ddfd546dbc290821aec312271[m
+Author: martin.kelko <martin2kelko@gmail.com>
+Date:   Tue Nov 14 12:17:27 2023 +0100
+
+    commit please
+
+[33mcommit d75e1b208031e37d4f091334fb3f85c5f1cadee3[m
+Author: martin.kelko <martin2kelko@gmail.com>
+Date:   Tue Oct 31 10:24:03 2023 +0100
+
+    commit please
+
+[33mcommit 9da87c285627f483cff1a21ce9a350f9b4aab94a[m
+Author: martin.kelko <martin2kelko@gmail.com>
+Date:   Tue Oct 31 10:24:03 2023 +0100
+
+    commit please
+
+[33mcommit 7bc0e981e613e75ab3b0ffa51a2621365e4c935f[m
+Author: martin.kelko <martin2kelko@gmail.com>
+Date:   Mon Oct 30 09:57:59 2023 +0100
+
+    commit please
+
+[33mcommit 458682b2d649ed5a2f7021755638e5d7b70f0a3c[m
+Author: martin.kelko <martin2kelko@gmail.com>
+Date:   Fri Oct 27 07:46:05 2023 +0200
+
+    commit please
+
+[33mcommit da8839cfcfb5ceda2c541f8bc02b28b440555c5c[m
+Author: martin.kelko <martin2kelko@gmail.com>
+Date:   Thu Oct 26 14:30:45 2023 +0200
+
+    commit please
+
+[33mcommit 2f6b7539586e1518955ff6398ca2ad5f6aee45e5[m
+Author: martin.kelko <martin2kelko@gmail.com>
+Date:   Tue Oct 24 13:21:23 2023 +0200
+
+    commit please
+
+[33mcommit 0affcc7ac27021a23097d474e18ce0f072142bce[m
+Author: martin.kelko <martin2kelko@gmail.com>
+Date:   Tue Oct 24 10:45:18 2023 +0200
+
+    commit please
+
+[33mcommit cbd95c78a25f4f4ff52aca901adff5933e614a70[m
+Author: martin.kelko <martin2kelko@gmail.com>
+Date:   Mon Oct 23 12:41:30 2023 +0200
+
+    commit please
+
+[33mcommit d7ca4869274b02011fcb4112bdece3581fa0ec62[m
+Author: martin.kelko <martin2kelko@gmail.com>
+Date:   Mon Oct 23 10:25:46 2023 +0200
+
+    Initial commit
